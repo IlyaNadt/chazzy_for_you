@@ -1,0 +1,9 @@
+ul {
+    list-style-type: none;
+}
+.title-of-message {
+    font-size: medium;
+}
+.text-of-message {
+    font-size: small;
+}

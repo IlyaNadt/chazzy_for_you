@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
-from .models import Message
+from messagebox.models import Message
 
 class HomePageView(TemplateView):
     template_name = "home.html"
