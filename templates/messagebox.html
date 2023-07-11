@@ -4,14 +4,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <style>
+      ul {
+        list-style-type: none;
+      }
+      .title-of-message {
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
   </head>
   <body>
     <h1>Your Messages:</h1>
     <ul>
       {% for message in message_list %}
-      <li class="title-of-message">{{ message.title }}</li>
+      <li class="title-of-message">
+        {{ message.date }} from:{{ message.author }} {{ message.title }}
+      </li>
       <li class="text-of-message">{{ message.text }}</li>
+      <hr>
       {% endfor %}
     </ul>
   </body>
