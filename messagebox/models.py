@@ -2,7 +2,6 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-
 class Message(models.Model):
     title = models.CharField(max_length=40)
     text = models.TextField()
