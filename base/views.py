@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView, ListView
 from messagebox.models import Message
 
@@ -11,3 +11,4 @@ class AboutPageView(TemplateView):
 class MessageboxPageView(ListView):
     model = Message
     template_name = "messagebox.html"
+#render branch
