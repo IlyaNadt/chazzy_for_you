@@ -8,7 +8,11 @@ class HomePageView(TemplateView):
 class AboutPageView(TemplateView):
     template_name = "contacts.html"
 
-class MessageboxPageView(ListView):
-    model = Message
-    template_name = "messagebox.html"
-#render branch
+def messagebox_view(request):
+    messages = Message.objects.all()
+    return render(request, 'messagebox.html', {'messages': messages})
+
+def message_view(request,year, month, day, message):
+    message = Message.get_object_or_404(Message, slug=message,\
+        publish__year=year, publish__month=month, publish__day=day)
+    return render(request, 'message.html', {'message': message})

@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import HomePageView, AboutPageView, MessageboxPageView
+from . import views
 
 urlpatterns = [
-    path("", HomePageView.as_view(), name='home'),
-    path("contacts/", AboutPageView.as_view(), name='contacts'),
-    path("messagebox/", MessageboxPageView.as_view(), name='messagebox')
+    path("", views.HomePageView.as_view(), name='home'),
+    path("contacts/", views.AboutPageView.as_view(), name='contacts'),
+    path("messagebox/", views.messagebox_view, name='messagebox_view'),
+    path("<int:year>/<int:month>/<int:day>/<slug:post>/", views.message_view, name='message_view')
 ]
