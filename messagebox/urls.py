@@ -2,7 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("messagebox/", views.messagebox_view, name='messagebox_view'),
-    path("<int:year>/<int:month>/<int:day>/<slug:post>/", views.message_view, name='message_view'),
+    path("messagebox_home", views.messagebox_home, name='messagebox_home'),
+    path("<int:pk>", views.message_detail, name='message'),
 ]
 
+app_name = 'messagebox'

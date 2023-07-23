@@ -1,6 +1,8 @@
+{% load static %}
 <header>
   <a href="{% url 'home' %}">Home</a>
   <a href="{% url 'contacts' %}">Contacts</a>
+  <a href="{% url 'messagebox:messagebox_home' %}">Messagebox</a>
 </header>
 
 {% block content %} {% endblock %}

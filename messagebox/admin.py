@@ -6,3 +6,4 @@ from .models import Message
 class MessageAdmin(admin.ModelAdmin):
     list_display = ("title", "author", "date")
     list_filter = ("date",)
+    search_fields = ("title", "author")
