@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Messagebox{% endblock %}
+{% block content %}
+<h1>Messagebox:</h1>
+{% for message in page_obj %} 
+    <h2><p>by: {{ message.author }}</p>
+    <a href="{% url 'messagebox:message_detail' pk=message.pk %}">{{ message.title }}</a></h2>
+    
+{% endfor %}
+{% include "messagebox/pagination.html" with page_obj=page_obj %}
+</div>
+{% endblock %}
+
