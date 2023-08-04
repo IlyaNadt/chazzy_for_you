@@ -2,6 +2,6 @@
 {% block title %}{{ message.title|truncatewords:30 }}{% endblock %}
 {% block content %}
 <h1>{{ message.title }}</h1>
-<h2>by: {{ message.author }}      {{ message.date }}</h2>
+<h2>{{ message.date }}</h2>
 <p>{{ message.text }}</p>
 {% endblock %}

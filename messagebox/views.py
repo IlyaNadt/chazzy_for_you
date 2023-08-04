@@ -1,14 +1,17 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Message
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.views.generic import ListView
 
-def messagebox_home(request):
-    object_list = Message.objects.all()
-    paginator = Paginator(object_list, 5)
-
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
-    return render(request, 'messagebox/messagebox_home.html', {'page_obj': page_obj})
+class MessageListView(ListView):
+    queryset = Message.objects.all()
+    context_object_name = 'messagebox'
+    paginate_by = 5
+    template_name = 'messagebox/messagebox_home.html'
 
 def message_detail(request, pk):
     return render(request, 'messagebox/message.html', {'message': get_object_or_404(Message, pk=pk)})
+    
+
+        
+
+

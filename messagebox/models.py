@@ -1,8 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.urls import reverse
-from django.core.exceptions import ValidationError
 
 class Message(models.Model):
     is_cleaned = False
@@ -10,7 +8,6 @@ class Message(models.Model):
     title = models.CharField(max_length=40)
     text = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField(blank=True, null=True, unique_for_date='date', unique=True)
     
     def save(self, *args, **kwargs):

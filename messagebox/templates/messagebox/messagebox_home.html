@@ -4,7 +4,7 @@
 {% block content %}
 <h1>Messagebox:</h1>
 {% for message in page_obj %} 
-    <h2><p>by: {{ message.author }}</p>
+    <h2>
     <a href="{% url 'messagebox:message_detail' pk=message.pk %}">{{ message.title }}</a></h2>
     
 {% endfor %}
